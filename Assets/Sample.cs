@@ -28,21 +28,21 @@ public class RowEntity
 public class Sample : MonoBehaviour
 {
     [SerializeField]
-    Button      Encode;
+    Button      Encrypt;
     [SerializeField]
-    Button      Decode;
+    Button      Decrypt;
 
     const string APP_PASSWORD = "01234567";
 
     void Awake()
     {
-        Encode.onClick.AddListener(clickEncode);
-        Decode.onClick.AddListener(clickDecode);
+        Encrypt.onClick.AddListener(clickEncrypt);
+        Decrypt.onClick.AddListener(clickDecrypt);
 
         Directory.CreateDirectory("Results");
     }
 
-    void clickEncode()
+    void clickEncrypt()
     {
         RowEntity row = new RowEntity();
 
@@ -71,7 +71,7 @@ public class Sample : MonoBehaviour
         Debug.Log($"encrypt data: Results/final_encrypt.bin");
     }
 
-    void clickDecode()
+    void clickDecrypt()
     {
         // read encrypt file
         byte[] encbin = File.ReadAllBytes("Results/final_encrypt.bin");
